@@ -11,9 +11,9 @@
 
     <RelativeLayout
         android:id="@+id/mainContainer"
-        android:visibility="visible"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,16 +22,84 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/search_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Vertical"
+                android:layout_marginBottom="15dp"
+                android:background="#FFF2D5"
+                android:text="@string/search"
+                android:textColor="@color/black">
+
+
+            </TextView>
+
+
+            <TextView
                 android:id="@+id/categoriesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Categories"
-                android:textSize="24sp">
+                android:background="@color/white"
+                android:text="@string/category"
+                android:textColor="@color/black"></TextView>
 
-            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/category1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="12dp"
+                    android:backgroundTint="@color/darkWhite"
+                    android:text="A"
+                    android:textColor="@color/black">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/category2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="12dp"
+                    android:backgroundTint="@color/darkWhite"
+                    android:text="B"
+                    android:textColor="@color/black">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/category3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="12dp"
+                    android:backgroundTint="@color/darkWhite"
+                    android:text="C"
+                    android:textColor="@color/black">
+
+                </Button>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/ViewMore"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="@string/categoryMore"
+                android:textColor="@color/black"
+                android:textSize="10dp">
+
+            </Button>
+
+
         </LinearLayout>
 
-        <LinearLayout
+
+        <!--        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
@@ -39,24 +107,25 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/recentFeedbacksLabel"
+                android:id="@+id/recentLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="false"
-                android:text="Recent Feedbacks"
-                android:textSize="24sp"
+                android:layout_centerInParent="true"
+                android:text="@string/recent"
+                android:textColor="hin"
                 android:visibility="visible">
 
             </TextView>
-        </LinearLayout>
 
+
+        </LinearLayout>-->
 
 
     </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
@@ -68,3 +137,5 @@
         app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>
+
+

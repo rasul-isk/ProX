@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ProX</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="search">Search for product or category</string>
+    <string name="category">Categories</string>
+    <string name="categoryMore">View More</string>
+    <string name="recent">Recent Feedbacks</string>
 </resources>
