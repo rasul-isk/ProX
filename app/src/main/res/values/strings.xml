@@ -4,4 +4,5 @@
     <string name="category">Categories</string>
     <string name="categoryMore">View More</string>
     <string name="recent">Recent Feedbacks</string>
+    <string name="author">Author Example</string>
 </resources>
