@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ProX</string>
-    <string name="search">Search for product or category</string>
+    <string name="search">Search</string>
     <string name="category">Categories</string>
     <string name="categoryMore">View More</string>
     <string name="recent">Recent Feedbacks</string>
