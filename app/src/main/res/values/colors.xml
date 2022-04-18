@@ -11,4 +11,6 @@
     <color name="blueBag">#00ACC1</color>
     <color name="oranBag">#ffb200</color>
     <color name="hint">#ccc</color>
+    <color name="primShapeColor">#00ACC1</color>
+    <color name="secShapeColor">#FFF2D5</color>
 </resources>
