@@ -16,8 +16,8 @@
         android:layout_height="match_parent"
         android:visibility="visible">
 
-        <!--
 
+        <!--
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -275,14 +275,11 @@
                         </LinearLayout>
 
                     </LinearLayout>
-
         -->
 
+
         <!--app:icon="@drawable/home_icon" for picking icon-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DID IT WORK? PROFILE"></TextView>
+
 
     </RelativeLayout>
 </RelativeLayout>

@@ -17,12 +17,14 @@
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/main_bg.xml" value="0.14" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/prim_shape.xml" value="0.1965" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/sec_shape.xml" value="0.1965" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/activity_signup.xml" value="0.1921875" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
-        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_map.xml" value="0.1" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_notifications.xml" value="0.22" />
-        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Software/ProX/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>
     </option>

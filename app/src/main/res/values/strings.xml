@@ -5,4 +5,13 @@
     <string name="categoryMore">View More</string>
     <string name="recent">Recent Feedbacks</string>
     <string name="author">Author Example</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="loginHere">Already have an account? <u>Login</u>.</string>
+    <string name="signup">SignUp</string>
+    <string name="signup_here">Don\'t have an account yet? <u>Sign Up</u>.</string>
 </resources>
