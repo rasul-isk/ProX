@@ -17,9 +17,21 @@
         android:label="title_map"
         tools:layout="@layout/fragment_map" />
 
+    <!--    <fragment
+            android:id="@+id/navigation_profile"
+            android:name="com.example.prox.ui.notifications.ProfileFragment"
+            android:label="title_profile"
+            tools:layout="@layout/fragment_profile" />-->
+
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.prox.ui.notifications.ProfileFragment"
-        android:label="title_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:name="com.example.prox.Login"
+        android:label="singup_page"
+        tools:layout="@layout/fragment_login" />
+    <!--
+        <fragment
+            android:id="@+id/navigation_login"
+            android:name="com.example.prox.Login"
+            android:label="login_page"
+            tools:layout="@layout/fragment_login" />-->
 </navigation>

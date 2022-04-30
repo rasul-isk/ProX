@@ -22,9 +22,12 @@
         <entry key="..\:/Software/ProX/app/src/main/res/layout/activity_signup.xml" value="0.1921875" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_login.xml" value="0.2911458333333333" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_map.xml" value="0.1" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_notifications.xml" value="0.22" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_sign_frament.xml" value="0.18958333333333333" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_signup.xml" value="0.2911458333333333" />
         <entry key="..\:/Software/ProX/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>
     </option>

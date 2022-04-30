@@ -1,22 +1,26 @@
 package com.example.prox;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.prox.databinding.FragmentMapBinding;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-public class Signup extends AppCompatActivity {
+public class Signup extends Fragment {
 
     TextInputEditText textInputEditTextFullname, textInputEditTextUsername, textInputEditTextPassword, textInputEditTextEmail;
     Button buttonSignUp;
@@ -24,19 +28,34 @@ public class Signup extends AppCompatActivity {
     ProgressBar progressBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+    }
 
-        textInputEditTextUsername = findViewById(R.id.username);
-        textInputEditTextFullname = findViewById(R.id.fullname);
-        textInputEditTextEmail = findViewById(R.id.email);
-        textInputEditTextPassword = findViewById(R.id.password);
 
-        buttonSignUp = findViewById(R.id.buttonSignUp);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_signup, container, false);
 
-        textViewLogin = findViewById(R.id.loginText);
-        progressBar = findViewById(R.id.progress);
+        textInputEditTextUsername = view.findViewById(R.id.username);
+        textInputEditTextFullname = view.findViewById(R.id.fullname);
+        textInputEditTextEmail = view.findViewById(R.id.email);
+        textInputEditTextPassword = view.findViewById(R.id.password);
+
+        buttonSignUp = view.findViewById(R.id.buttonSignUp);
+
+        textViewLogin = view.findViewById(R.id.login_here);
+        progressBar = view.findViewById(R.id.progress);
+
+        textViewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+/*                Intent intent = new Intent(getActivity(),Login.class);
+                startActivity(intent);*/
+            }
+        });
 
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,24 +83,21 @@ public class Signup extends AppCompatActivity {
                             field[3] = "email";
                             //Creating array for data
                             String[] data = new String[4];
-                            data[0] = "fullname";
-                            data[1] = "username";
-                            data[2] = "password";
-                            data[3] = "email";
+                            data[0] = fullname;
+                            data[1] = username;
+                            data[2] = password;
+                            data[3] = email;
                             PutData putData = new PutData("http://172.16.23.134/LoginRegister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
-                                    //End ProgressBar (Set visibility to GONE)
-                                    //Log.i("PutData", result); not required
                                     if (result.equals("Sign Up Success")) {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                                        Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getActivity(), Login.class);
                                         startActivity(intent);
-                                        finish();
                                     } else {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -89,11 +105,11 @@ public class Signup extends AppCompatActivity {
                         }
                     });
                 } else {
-                    Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "All fields required", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
+        return view;
     }
 }
