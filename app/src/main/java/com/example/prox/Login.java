@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -46,13 +48,24 @@ public class Login extends Fragment {
         textViewSignUp = view.findViewById(R.id.signup_here);
         progressBar = view.findViewById(R.id.progress);
 
-/*        textViewSignUp.setOnClickListener(new View.OnClickListener() {
+        textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(),Signup.class);
-                startActivity(intent);
+                Fragment newFragment = new Signup();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.navigation_login, newFragment, null);
+                fragmentTransaction.commit();
+
+   /*             FragmentManager fragmentManager2 = getFragmentManager();
+                FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                DetailFragment fragment2 = new DetailFragment();
+                fragmentTransaction2.addToBackStack("xyz");
+                fragmentTransaction2.hide(MeinProfilFragment.this);
+                fragmentTransaction2.add(android.R.id.content, fragment2);
+                fragmentTransaction2.commit();*/
             }
-        });*/
+        });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override

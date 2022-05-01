@@ -29,6 +29,7 @@ public class Signup extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
@@ -49,13 +50,6 @@ public class Signup extends Fragment {
         textViewLogin = view.findViewById(R.id.login_here);
         progressBar = view.findViewById(R.id.progress);
 
-        textViewLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-/*                Intent intent = new Intent(getActivity(),Login.class);
-                startActivity(intent);*/
-            }
-        });
 
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

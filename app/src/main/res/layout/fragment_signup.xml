@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/poppinsbold"
             android:text="@string/signup"
             android:textSize="60dp"
             android:textStyle="bold" />
@@ -30,13 +31,17 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="15dp"
-            android:hint="@string/full_name">
+            android:hint="@string/full_name"
+            app:endIconMode="clear_text">
+
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean" />
+                android:fontFamily="@font/poppinsmedium"
+                tools:targetApi="jelly_bean"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -44,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="15dp"
-            android:hint="@string/email">
+            android:hint="@string/email"
+            app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
@@ -58,7 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="15dp"
-            android:hint="@string/username">
+            android:hint="@string/username"
+            app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username"
@@ -72,7 +79,8 @@
             android:id="@+id/textInputLayoutPassword"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:hint="@string/password">
+            android:hint="@string/password"
+            app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"

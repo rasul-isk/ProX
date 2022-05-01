@@ -20,7 +20,7 @@
         <item name="colorPrimaryDark">#c68400</item>
         <item name="colorSecondary">#00acc1</item>
 <!--        <item name="android:textColorPrimary">#ffffff</item>
-        <item name="android:textColorSecondary">#000000</item>-->
+        <item name="android:textColorSecondary">#000000</item>           Will occur error-->
         <item name="android:textSize">24sp</item>
 
         <item name="android:statusBarColor" tools:targetApi="l">#c68400</item>
