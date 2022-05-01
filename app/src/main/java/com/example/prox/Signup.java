@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -50,10 +51,27 @@ public class Signup extends Fragment {
         textViewLogin = view.findViewById(R.id.login_here);
         progressBar = view.findViewById(R.id.progress);
 
+        textViewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Login newFragment = new Login();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                fragmentTransaction.replace(R.id.main_fragment_container, newFragment, null);
+                fragmentTransaction.commit();
+            }
+        });
+
 
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                textInputEditTextUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                textInputEditTextPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                textInputEditTextFullname.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                textInputEditTextEmail.onEditorAction(EditorInfo.IME_ACTION_DONE);
+
                 String fullname, username, password, email;
 
                 fullname = String.valueOf(textInputEditTextFullname.getText());

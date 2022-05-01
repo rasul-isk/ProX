@@ -1,4 +1,4 @@
-package com.example.prox.ui.dashboard;
+package com.example.prox.ui.map;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.prox.R;
 import com.example.prox.databinding.FragmentMapBinding;
 
 public class MapFragment extends Fragment {
@@ -17,20 +18,11 @@ public class MapFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MapViewModel mapViewModel =
-                new ViewModelProvider(this).get(MapViewModel.class);
 
-        binding = FragmentMapBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
 
-        //final TextView textView = binding.textDashboard;
-        //mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);s
-        return root;
+
+        return view;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 }

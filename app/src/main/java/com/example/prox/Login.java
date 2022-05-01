@@ -1,6 +1,8 @@
 package com.example.prox;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,22 +14,24 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prox.databinding.FragmentMapBinding;
+import com.example.prox.ui.profile.ProfileFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Login extends Fragment {
 
-    private FragmentMapBinding binding;
     TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
     Button buttonLogin;
     TextView textViewSignUp;
     ProgressBar progressBar;
+    SharedPreferences sp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,28 +52,27 @@ public class Login extends Fragment {
         textViewSignUp = view.findViewById(R.id.signup_here);
         progressBar = view.findViewById(R.id.progress);
 
+        sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
+
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment newFragment = new Signup();
+                Signup newFragment = new Signup();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.navigation_login, newFragment, null);
+                fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                fragmentTransaction.replace(R.id.main_fragment_container, newFragment, null);
                 fragmentTransaction.commit();
-
-   /*             FragmentManager fragmentManager2 = getFragmentManager();
-                FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
-                DetailFragment fragment2 = new DetailFragment();
-                fragmentTransaction2.addToBackStack("xyz");
-                fragmentTransaction2.hide(MeinProfilFragment.this);
-                fragmentTransaction2.add(android.R.id.content, fragment2);
-                fragmentTransaction2.commit();*/
             }
         });
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                textInputEditTextUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                textInputEditTextPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
+
                 String username, password;
 
                 username = String.valueOf(textInputEditTextUsername.getText());
@@ -97,9 +100,21 @@ public class Login extends Fragment {
                                     progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     if (result.equals("Login Success")) {
-                                        Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
-                                        startActivity(intent);
+                                        Toast.makeText(getActivity(), result + " Information Saved", Toast.LENGTH_SHORT).show();
+
+                                        SharedPreferences.Editor editor = sp.edit();
+
+                                        editor.putString("username", data[0]);
+                                        editor.putString("password", data[1]);
+                                        editor.commit();
+
+
+                                        ProfileFragment newFragment = new ProfileFragment();
+                                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.main_fragment_container, newFragment, null);
+                                        fragmentTransaction.commit();
                                     } else {
                                         Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
                                     }
