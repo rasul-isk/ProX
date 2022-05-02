@@ -1,25 +1,25 @@
-package com.example.prox.ui.map;
+package com.example.prox;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.prox.R;
-import com.example.prox.databinding.FragmentMapBinding;
+import com.example.prox.databinding.FragmentHomeBinding;
 
-public class MapFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private FragmentMapBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_map, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
         return view;

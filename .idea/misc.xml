@@ -8,6 +8,7 @@
         <entry key="..\:/Software/ProX/app/src/main/res/drawable-anydpi/profile_icon.xml" value="0.1445" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable-anydpi/qrcode_icon.xml" value="0.1965" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.366" />
+        <entry key="..\:/Software/ProX/app/src/main/res/drawable-xxxhdpi/profile_photo.xml" value="0.1715" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/homeIcon.xml" value="0.201" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.366" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.366" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/launcher_icon.xml" value="0.1965" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/main_bg.xml" value="0.14" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/prim_shape.xml" value="0.1965" />
+        <entry key="..\:/Software/ProX/app/src/main/res/drawable/profile_photo.xml" value="0.105" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/sec_shape.xml" value="0.1965" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -28,6 +30,7 @@
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_sign_frament.xml" value="0.18958333333333333" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/fragment_signup.xml" value="0.2911458333333333" />
+        <entry key="..\:/Software/ProX/app/src/main/res/layout/profile_edit.xml" value="0.36666666666666664" />
         <entry key="..\:/Software/ProX/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>
     </option>

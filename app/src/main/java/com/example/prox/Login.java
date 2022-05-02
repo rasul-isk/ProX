@@ -1,7 +1,6 @@
 package com.example.prox;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -20,8 +19,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.prox.databinding.FragmentMapBinding;
-import com.example.prox.ui.profile.ProfileFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -58,11 +55,7 @@ public class Login extends Fragment {
             @Override
             public void onClick(View view) {
                 Signup newFragment = new Signup();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                fragmentTransaction.replace(R.id.main_fragment_container, newFragment, null);
-                fragmentTransaction.commit();
+                ReplaceFragment(newFragment);
             }
         });
 
@@ -110,11 +103,7 @@ public class Login extends Fragment {
 
 
                                         ProfileFragment newFragment = new ProfileFragment();
-                                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                                        fragmentTransaction.replace(R.id.main_fragment_container, newFragment, null);
-                                        fragmentTransaction.commit();
+                                        ReplaceFragment(newFragment);
                                     } else {
                                         Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
                                     }
@@ -130,5 +119,13 @@ public class Login extends Fragment {
         });
 
         return view;
+    }
+
+    protected void ReplaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.main_fragment_container, fragment, null);
+        fragmentTransaction.commit();
     }
 }
