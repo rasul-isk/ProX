@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.prox.R;
 import com.example.prox.databinding.FragmentMapBinding;
 
-public class MapFragment extends Fragment {
+public class Map extends Fragment {
 
     private FragmentMapBinding binding;
 

@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.example.prox.MapFragment"
+        android:name="com.example.prox.Map"
         android:label="title_map"
         tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.prox.ProfileFragment"
+        android:name="com.example.prox.Profile"
         android:label="title_profile"
         tools:layout="@layout/fragment_profile" />
 

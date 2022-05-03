@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class profile_edit extends Fragment {
+public class Profile_edit extends Fragment {
     SharedPreferences sp;
     Button signout;
 
@@ -52,6 +52,8 @@ public class profile_edit extends Fragment {
             }
         });
 
+ */
+
         return view;
     }
     protected void ReplaceFragment(Fragment fragment)
@@ -61,8 +63,5 @@ public class profile_edit extends Fragment {
         fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         fragmentTransaction.replace(R.id.main_fragment_container, fragment, null);
         fragmentTransaction.commit();
-    }*/
-        return view;
     }
-
 }

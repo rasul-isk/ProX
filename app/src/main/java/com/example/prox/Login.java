@@ -84,7 +84,7 @@ public class Login extends Fragment {
                             field[0] = "username";
                             field[1] = "password";
                             //Creating array for data
-                            String[] data = new String[4];
+                            String[] data = new String[2];
                             data[0] = username;
                             data[1] = password;
                             PutData putData = new PutData("http://172.16.23.134/LoginRegister/login.php", "POST", field, data);
@@ -102,7 +102,7 @@ public class Login extends Fragment {
                                         editor.commit();
 
 
-                                        ProfileFragment newFragment = new ProfileFragment();
+                                        Profile newFragment = new Profile();
                                         ReplaceFragment(newFragment);
                                     } else {
                                         Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
