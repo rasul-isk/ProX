@@ -25,4 +25,10 @@
     <string name="unknown">Unknown</string>
     <string name="zero">0</string>
     <string name="phone">Phone\:\ </string>
+    <string name="return_back">Return Back</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="cancel_changes">Cancel Changes</string>
+    <string name="email_text">Email\:\ </string>
+    <string name="full_name_text">Full Name\:\ </string>
+    <string name="living_location">Location\:\ </string>
 </resources>

@@ -80,8 +80,8 @@ public class Profile extends Fragment {
                         location.setText("Unknown");
                     }
 
-                    feedback.setText(result[8]);
-                    rate.setText(result[9]);
+                    feedback.setText(result[9]);
+                    rate.setText(result[10]);
                 } else {
                     Toast.makeText(getActivity(), putData.getResult(), Toast.LENGTH_SHORT).show();
                 }
