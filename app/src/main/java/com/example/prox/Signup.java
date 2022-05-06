@@ -106,8 +106,9 @@ public class Signup extends Fragment {
                                     String result = putData.getResult();
                                     if (result.equals("Sign Up Success")) {
                                         Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getActivity(), Login.class);
-                                        startActivity(intent);
+
+                                        Login newFragment = new Login();
+                                        ReplaceFragment(newFragment);
                                     } else {
                                         Toast.makeText(getActivity(), result, Toast.LENGTH_SHORT).show();
                                     }
@@ -123,5 +124,13 @@ public class Signup extends Fragment {
         });
 
         return view;
+    }
+
+    protected void ReplaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.main_fragment_container, fragment, null);
+        fragmentTransaction.commit();
     }
 }

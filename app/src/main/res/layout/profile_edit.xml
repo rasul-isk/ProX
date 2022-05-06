@@ -50,79 +50,100 @@
             android:layout_marginTop="7dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/email_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="@string/email_text"
                 android:textSize="26sp" />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/unknown"
-                android:textSize="26sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_text_e"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/unknown"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_capture_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/full_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="@string/full_name_text"
                 android:textSize="26sp" />
 
-            <TextView
-                android:id="@+id/full_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/unknown"
-                android:textSize="26sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/full_name_text_e"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/unknown"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/full_name_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/phone_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="@string/phone"
                 android:textSize="26sp" />
 
-            <TextView
-                android:id="@+id/phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/unknown"
-                android:textSize="26sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_text_e"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/unknown"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/favourite_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -130,36 +151,51 @@
             android:layout_marginTop="7dp"
             android:textSize="26sp" />
 
-        <TextView
-            android:id="@+id/favourite_categories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/unknown"
-            android:textSize="26sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/favourite_text_e"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/unknown"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/favourite_categories_e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:targetApi="jelly_bean" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/location_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="@string/living_location"
                 android:textSize="26sp" />
 
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/unknown"
-                android:textSize="26sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/location_text_e"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/unknown"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/location_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 

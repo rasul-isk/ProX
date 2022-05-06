@@ -1,24 +1,42 @@
 package com.example.prox;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+
+import org.apache.commons.io.FileUtils;
+
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.OpenableColumns;
+import android.renderscript.ScriptGroup;
 import android.widget.Toast;
 
-import com.example.prox.databinding.ActivityMainBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.prox.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import org.apache.commons.io.FileUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,13 +45,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_map, R.id.navigation_profile)
                 .build();
@@ -45,15 +60,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Uri uri = data.getData();
-        CircleImageView imageButton = findViewById(R.id.profile_edited_photo);
-        imageButton.setImageURI(uri);
-        Toast.makeText(this, "here", Toast.LENGTH_SHORT).show();
+        if (resultCode == this.RESULT_OK) {
+            Uri uri = data.getData();
+            String[] result = uri.toString().split("/");
+            String name = result[result.length - 1];
 
-    }
+            SharedPreferences sp;
+            sp = getSharedPreferences("user_details", Context.MODE_PRIVATE);
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+            SharedPreferences.Editor editor = sp.edit();
+
+            editor.putString("profile_img", name);
+            editor.commit();
+
+            CircleImageView profile_edited_photo;
+            profile_edited_photo = findViewById(R.id.profile_edited_photo);
+            profile_edited_photo.setImageURI(uri);
+
+   /*         InputStream stream = null;
+
+            try {
+
+                assert uri !=null;
+                stream = getContentResolver().openInputStream(uri);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            BitmapFactory.decodeStream(stream);*/
+
+
+        }
     }
 }
