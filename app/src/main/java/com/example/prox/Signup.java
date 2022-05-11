@@ -55,11 +55,7 @@ public class Signup extends Fragment {
             @Override
             public void onClick(View view) {
                 Login newFragment = new Login();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                fragmentTransaction.replace(R.id.main_fragment_container, newFragment, null);
-                fragmentTransaction.commit();
+                ReplaceFragment(newFragment);
             }
         });
 
@@ -67,7 +63,7 @@ public class Signup extends Fragment {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textInputEditTextUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                textInputEditTextUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);  //KEYBOARD HIDE
                 textInputEditTextPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
                 textInputEditTextFullname.onEditorAction(EditorInfo.IME_ACTION_DONE);
                 textInputEditTextEmail.onEditorAction(EditorInfo.IME_ACTION_DONE);
