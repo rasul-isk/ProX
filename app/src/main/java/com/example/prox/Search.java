@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Search extends Fragment {
+public class Search extends Fragment implements SelectListener {
 
     ImageButton search_button;
     TextInputEditText search;
@@ -97,7 +97,7 @@ public class Search extends Fragment {
                         //Toast.makeText(getActivity(), items[0] + " " + items[1] + " €" + items[2], Toast.LENGTH_SHORT).show();
                         myProductList.add(new Product(items[0], items[1], "€" + items[2]));
                     }
-                    adapter = new Adapter(getActivity(), myProductList);
+                    adapter = new Adapter(getActivity(), myProductList, this);
                     recyclerView.setAdapter(adapter);
                 } else {
                     Toast.makeText(getActivity(), "No results", Toast.LENGTH_SHORT).show();
@@ -113,5 +113,10 @@ public class Search extends Fragment {
         fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         fragmentTransaction.replace(R.id.main_fragment_container, fragment, null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onItemClicked(Product product) {
+        Toast.makeText(getActivity(), product.getName(), Toast.LENGTH_SHORT).show();
     }
 }
