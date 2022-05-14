@@ -1,11 +1,8 @@
 package com.example.prox;
 
 import android.content.Context;
-import android.util.proto.ProtoOutputStream;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +27,8 @@ public class Adapter extends RecyclerView.Adapter<CustomViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         holder.textName.setText(list.get(position).getName());
-        holder.textCategory.setText(list.get(position).getCategory());
+        holder.textCategory.setText(list.get(position).getStore());
+        holder.textPrice.setText(list.get(position).getPrice());
 
         //always cast data as string value of
     }

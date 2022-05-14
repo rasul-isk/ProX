@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Map"
+    tools:context=".ProductView"
     android:background="@drawable/main_bg"
     android:orientation="vertical"
     android:padding="25dp"
     android:paddingTop="?attr/actionBarSize">
 
 
-        <!--app:icon="@drawable/home_icon" for picking icon-->
-        <TextView
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MAP SECTION. NOT READY YET!"></TextView>
+    <TextView
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRODUCT VIEW SECTION.       NOT READY YET!"></TextView>
+
 
 </RelativeLayout>
 

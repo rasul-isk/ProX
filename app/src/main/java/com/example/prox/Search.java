@@ -90,26 +90,18 @@ public class Search extends Fragment {
                 recyclerView = view.findViewById(R.id.recyclerView);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-                myProductList.add(new Product("Evan", "2522"));
-                myProductList.add(new Product("Evan1", "25221"));
-                myProductList.add(new Product("Evan2", "25222"));
-                myProductList.add(new Product("Evan3", "25223"));
-                myProductList.add(new Product("Evan4", "25224"));
-                myProductList.add(new Product("Evan5", "25225"));
-                myProductList.add(new Product("Evan3", "25223"));
-                myProductList.add(new Product("Evan4", "25224"));
-                myProductList.add(new Product("Evan5", "25225"));
-                myProductList.add(new Product("Evan3", "25223"));
-                myProductList.add(new Product("Evan4", "25224"));
-                myProductList.add(new Product("Evan5", "25225"));
-                myProductList.add(new Product("Evan3", "25223"));
-                myProductList.add(new Product("Evan4", "25224"));
-                myProductList.add(new Product("Evan5", "25225"));
 
-                adapter = new Adapter(getActivity(), myProductList);
-                recyclerView.setAdapter(adapter);
-
-
+                if (!result[0].isEmpty()) {
+                    for (String row : result) {
+                        String[] items = row.split(",");
+                        //Toast.makeText(getActivity(), items[0] + " " + items[1] + " €" + items[2], Toast.LENGTH_SHORT).show();
+                        myProductList.add(new Product(items[0], items[1], "€" + items[2]));
+                    }
+                    adapter = new Adapter(getActivity(), myProductList);
+                    recyclerView.setAdapter(adapter);
+                } else {
+                    Toast.makeText(getActivity(), "No results", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
