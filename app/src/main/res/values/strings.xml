@@ -34,4 +34,9 @@
     <string name="price">Price</string>
     <string name="store">Store</string>
     <string name="name">Name</string>
+    <string name="_4_5_5_5k_rating">4.5/5 - 5K Rating</string>
+    <string name="from_example">From Example</string>
+    <string name="find_store">Find Store</string>
+    <string name="product_description">Product Description</string>
+    <string name="already_have_it_share_feedback">Already have it? Share feedback!</string>
 </resources>

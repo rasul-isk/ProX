@@ -3,6 +3,11 @@ package com.example.prox;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,23 +15,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Search extends Fragment implements SelectListener {
@@ -107,6 +99,20 @@ public class Search extends Fragment implements SelectListener {
     }
 
 
+    @Override
+    public void onItemClicked(Product product) {
+
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putString("product", product.getName());
+        editor.commit();
+
+
+        ProductView newFragment = new ProductView();
+        ReplaceFragment(newFragment);
+    }
+
+
     protected void ReplaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -115,8 +121,4 @@ public class Search extends Fragment implements SelectListener {
         fragmentTransaction.commit();
     }
 
-    @Override
-    public void onItemClicked(Product product) {
-        Toast.makeText(getActivity(), product.getName(), Toast.LENGTH_SHORT).show();
-    }
 }

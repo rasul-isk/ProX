@@ -1,6 +1,5 @@
 package com.example.prox;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -11,20 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.prox.Login;
-import com.example.prox.R;
-import com.example.prox.Signup;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.io.File;
@@ -37,7 +30,7 @@ public class Profile extends Fragment {
     SharedPreferences sp;
     Button signout;
     TextView full_name, email, feedback, rate, favourite, location, phone, edit_profile;
-    CircleImageView profile_photo;
+    CircleImageView profile_photo, profile_photo_product;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -95,12 +88,13 @@ public class Profile extends Fragment {
 
                     if (!result[8].equals("")) {
                         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + result[8].substring(0, result[8].length() - 1);
-                        ;
+
                         File imgFile = new File(path);
 
                         if (imgFile.exists()) {
                             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                             profile_photo.setImageBitmap(myBitmap);
+                            //profile_photo_product.setImageBitmap(myBitmap);
                         }
                         ;
                     }
