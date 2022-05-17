@@ -35,7 +35,7 @@ public class ProductView extends Fragment {
     String product_name_text, username;
     TextInputEditText review_input;
     CircleImageView profile_photo_product, profile_image_product_fragment;
-    TextView product_price, product_name, product_store, product_rating, product_category, product_description;
+    TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search;
 
 
     @Override
@@ -64,6 +64,7 @@ public class ProductView extends Fragment {
         profile_image_product_fragment = view.findViewById(R.id.profile_image_product_fragment);
         review_input = view.findViewById(R.id.review_input);
         share_review_button = view.findViewById(R.id.share_review_button);
+        back_to_search = view.findViewById(R.id.back_to_search);
 
         find_store = view.findViewById(R.id.find_store_button);
 
@@ -82,12 +83,16 @@ public class ProductView extends Fragment {
                 if (putData.onComplete()) {
                     String[] result = putData.getResult().split(",");
                     String price = "€" + result[1];
+                    String store = "From " + result[4];
+                    String category = result[2].replace("_"," ").replace("-"," ");
+                    String description = result[3].replace("_"," ").replace("-"," ");
+
                     product_name.setText(result[0]);
                     product_price.setText(price);
-                    product_category.setText(result[2]);
-                    product_description.setText(result[3]);
-                    product_store.setText(result[4]);
-                    Toast.makeText(getActivity(), result[5], Toast.LENGTH_SHORT).show();
+                    product_category.setText(category);
+                    product_description.setText(description);
+                    product_store.setText(store);
+                    //Toast.makeText(getActivity(), result[5], Toast.LENGTH_SHORT).show();
 
                     Picasso.get()
                             .load(result[5])
@@ -98,6 +103,14 @@ public class ProductView extends Fragment {
                 }
             }
         }
+
+        back_to_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Search newFragment = new Search();
+                ReplaceFragment(newFragment);
+            }
+        });
 
         return view;
     }
