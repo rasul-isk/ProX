@@ -13,7 +13,7 @@
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/homeIcon.xml" value="0.201" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.366" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.366" />
-        <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_launcher_background.xml" value="0.366" />
+        <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1905" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1445" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/launcher_icon.xml" value="0.1965" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable/main_bg.xml" value="0.14" />
@@ -36,6 +36,9 @@
         <entry key="..\:/Software/ProX/app/src/main/res/layout/item.xml" value="0.33" />
         <entry key="..\:/Software/ProX/app/src/main/res/layout/profile_edit.xml" value="0.2638888888888889" />
         <entry key="..\:/Software/ProX/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/Software/ProX/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14" />
+        <entry key="..\:/Software/ProX/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.189" />
+        <entry key="..\:/Software/ProX/app/src/main/res/mipmap-anydpi-v26/prox_launcher.xml" value="0.189" />
       </map>
     </option>
   </component>

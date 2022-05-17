@@ -104,7 +104,7 @@ public class Search extends Fragment implements SelectListener {
 
         SharedPreferences.Editor editor = sp.edit();
 
-        editor.putString("search",search_text);
+        editor.putString("search",search.getText().toString());
         editor.putString("product", product.getName());
         editor.commit();
 
