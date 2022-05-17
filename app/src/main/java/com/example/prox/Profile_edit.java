@@ -1,18 +1,15 @@
 package com.example.prox;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +23,8 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import java.io.File;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -82,32 +81,40 @@ public class Profile_edit extends Fragment {
                 if (putData.onComplete()) {
                     String[] result = putData.getResult().split(",");
 
-                    email.setHint(result[1]);
-                    full_name.setHint(result[2]);
+
+                    email_input.setText(result[1]);
+                    full_name_input.setText(result[2]);
 
                     if (!result[3].equals("0")) {
-                        phone.setHint(result[3]);
+                        phone_input.setText(result[3]);
                     } else {
-                        phone.setHint("Unknown");
+                        phone_input.setHint("Unknown");
                     }
 
                     if (!result[4].equals("")) {
-                        favourite.setHint(result[4]);
+                        favourite_input.setText(result[4]);
                     } else {
-                        favourite.setHint("Unknown");
+                        favourite_input.setHint("Unknown");
                     }
 
                     if (!result[5].equals("")) {
-                        location.setHint(result[5]);
+                        location_input.setText(result[5]);
                     } else {
-                        location.setHint("Unknown");
+                        location_input.setHint("Unknown");
                     }
 
-                    full_name_input.setText(full_name.getHint());
-                    email_input.setText(email.getHint());
-                    favourite_input.setText(favourite.getHint());
-                    location_input.setText(location.getHint());
-                    phone_input.setText(phone.getHint());
+                    if (!result[8].equals("")) {
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + result[8].substring(0, result[8].length() - 1);
+
+                        File imgFile = new File(path);
+
+                        if (imgFile.exists()) {
+                            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                            profile_edited_photo.setImageBitmap(myBitmap);
+                            //profile_photo_product.setImageBitmap(myBitmap);
+                        }
+
+                    }
 
                 } else {
                     Toast.makeText(getActivity(), putData.getResult(), Toast.LENGTH_SHORT).show();

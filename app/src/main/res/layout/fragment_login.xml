@@ -27,15 +27,19 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:id="@+id/textInputLayoutUsername"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:textColor="#111"
+            app:placeholderTextColor="#111"
             android:hint="@string/username"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username"
+                android:textSize="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:targetApi="jelly_bean" />
@@ -43,14 +47,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:textColor="#111"
+            app:placeholderTextColor="#111"
             android:id="@+id/textInputLayoutPassword"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:hint="@string/password"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textPassword"
                 android:id="@+id/password"
+                android:textSize="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:targetApi="jelly_bean" />
@@ -84,257 +93,5 @@
 
 
     </LinearLayout>
-
-    <!--
-                        <LinearLayout
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/sec_shape"
-                            android:gravity="left"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="8dp">
-
-                            <ImageButton
-                                android:id="@+id/search_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="?android:attr/selectableItemBackground"
-                                app:srcCompat="@android:drawable/ic_menu_search" />
-
-                            <TextView
-                                android:paddingStart="6dp"
-                                android:id="@+id/search_bar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/search"
-                                android:textColor="@color/black"></TextView>
-
-
-                        </LinearLayout>
-
-                        <ImageButton
-                            android:paddingStart="10dp"
-                            android:id="@+id/barcode_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:background="?android:attr/selectableItemBackground"
-                            app:srcCompat="@drawable/qrcode_icon" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:background="@drawable/prim_shape"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-
-                        <TextView
-                            android:id="@+id/categoriesLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/category"
-                            android:textColor="@color/black"></TextView>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-                            <Button
-                                android:id="@+id/category1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginHorizontal="12dp"
-                                android:backgroundTint="@color/darkWhite"
-                                android:text="A"
-                                android:textColor="@color/black">
-
-                            </Button>
-
-                            <Button
-                                android:id="@+id/category2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginHorizontal="12dp"
-                                android:backgroundTint="@color/darkWhite"
-                                android:text="B"
-                                android:textColor="@color/black">
-
-                            </Button>
-
-                            <Button
-                                android:id="@+id/category3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginHorizontal="12dp"
-                                android:backgroundTint="@color/darkWhite"
-                                android:text="C"
-                                android:textColor="@color/black">
-
-                            </Button>
-                        </LinearLayout>
-
-                        <Button
-                            android:id="@+id/categoryMore"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="?android:attr/selectableItemBackground"
-                            android:text="@string/categoryMore"
-                            android:textColor="@color/black"
-                            android:textSize="10dp">
-
-                        </Button>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:background="@drawable/prim_shape"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/recentLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/recent"
-                            android:textColor="@color/black"></TextView>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground">
-
-                            </ImageView>
-
-                            <TextView
-                                android:id="@+id/recentAuthor1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:text="@string/author"
-                                android:textColor="@color/black"
-                                android:textSize="17dp"></TextView>
-
-                            <Button
-                                android:id="@+id/recent1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:background="?android:attr/selectableItemBackground"
-                                android:text="Review 1"
-                                android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textSize="17dp">
-
-                            </Button>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground">
-
-                            </ImageView>
-
-                            <TextView
-                                android:id="@+id/recentAuthor2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:text="@string/author"
-                                android:textColor="@color/black"
-                                android:textSize="17dp"></TextView>
-
-                            <Button
-                                android:id="@+id/recent2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:background="?android:attr/selectableItemBackground"
-                                android:text="Review 2"
-                                android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textSize="17dp">
-
-                            </Button>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="15dp"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/ic_launcher_foreground">
-
-                            </ImageView>
-
-                            <TextView
-                                android:id="@+id/recentAuthor3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:text="@string/author"
-                                android:textColor="@color/black"
-                                android:textSize="17dp"></TextView>
-
-                            <Button
-                                android:id="@+id/recent3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:background="?android:attr/selectableItemBackground"
-                                android:text="Review 3"
-                                android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textSize="17dp">
-
-                            </Button>
-
-                        </LinearLayout>
-
-                        <Button
-                            android:id="@+id/recentMore"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="?android:attr/selectableItemBackground"
-                            android:text="@string/categoryMore"
-                            android:textColor="@color/black"
-                            android:textSize="10dp">
-
-                        </Button>
-                    </LinearLayout>
-
-                </LinearLayout>
-    -->
-
-
-    <!--app:icon="@drawable/home_icon" for picking icon-->
-
 
 </RelativeLayout>

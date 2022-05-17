@@ -31,15 +31,17 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:textColor="#111"
+                    app:placeholderTextColor="#111"
                     android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:text="@string/search"
-                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
                     app:endIconMode="clear_text"
                     android:hint="@string/search">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/search_input_home"
+                        android:textSize="15sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:targetApi="jelly_bean" />

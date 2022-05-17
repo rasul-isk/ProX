@@ -96,7 +96,7 @@ public class Profile extends Fragment {
                             profile_photo.setImageBitmap(myBitmap);
                             //profile_photo_product.setImageBitmap(myBitmap);
                         }
-                        ;
+
                     }
 
                     feedback.setText(result[9]);

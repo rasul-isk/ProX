@@ -34,20 +34,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/profile_icon"
             android:background="?android:attr/selectableItemBackground"
-            app:civ_border_width="0dp"
-            app:civ_border_color="#FF000000" />
+            android:src="@drawable/profile_icon"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0dp" />
 
         <TextView
             android:id="@+id/edit_profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="2dp"
             android:text="@string/edit_profile"
             android:textSize="26sp"
-            android:textStyle="bold"
-            android:layout_marginTop="7dp" />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,16 +65,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_text_e"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
                 android:hint="@string/unknown"
-                app:endIconMode="clear_text">
+                android:textColor="#111"
+                app:endIconMode="clear_text"
+                app:placeholderTextColor="#111">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_capture_e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
                     tools:targetApi="jelly_bean" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,16 +99,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/full_name_text_e"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
                 android:hint="@string/unknown"
-                app:endIconMode="clear_text">
+                android:textColor="#111"
+                app:endIconMode="clear_text"
+                app:placeholderTextColor="#111">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/full_name_e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
                     tools:targetApi="jelly_bean" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,16 +133,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phone_text_e"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
                 android:hint="@string/unknown"
-                app:endIconMode="clear_text">
+                android:textColor="#111"
+                app:endIconMode="clear_text"
+                app:placeholderTextColor="#111">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
                     tools:targetApi="jelly_bean" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,23 +156,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="@string/favourite_categories"
             android:layout_marginTop="7dp"
+            android:text="@string/favourite_categories"
             android:textSize="26sp" />
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/favourite_text_e"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:hint="@string/unknown"
-            app:endIconMode="clear_text">
+            android:textColor="#111"
+            app:endIconMode="clear_text"
+            app:placeholderTextColor="#111">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/favourite_categories_e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="15sp"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,7 +184,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -183,16 +195,20 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/location_text_e"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:hint="@string/unknown"
-                app:endIconMode="clear_text">
+                android:textColor="#111"
+                app:endIconMode="clear_text"
+                app:placeholderTextColor="#111">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/location_e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="15sp"
                     tools:targetApi="jelly_bean" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -205,7 +221,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:backgroundTint="@color/darkWhite"
             android:text="@string/save_changes"
             android:textColor="@color/black" />
