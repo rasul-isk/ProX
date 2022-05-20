@@ -1,6 +1,7 @@
 package com.example.prox;
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -17,7 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.prox.databinding.FragmentMapBinding;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -27,6 +27,8 @@ public class Signup extends Fragment {
     Button buttonSignUp;
     TextView textViewLogin;
     ProgressBar progressBar;
+    SharedPreferences sp;
+    String url;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class Signup extends Fragment {
         textInputEditTextFullname = view.findViewById(R.id.fullname);
         textInputEditTextEmail = view.findViewById(R.id.email);
         textInputEditTextPassword = view.findViewById(R.id.password);
+
+        sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
+        url = sp.getString("ip","");
 
         buttonSignUp = view.findViewById(R.id.buttonSignUp);
 
@@ -95,7 +100,7 @@ public class Signup extends Fragment {
                             data[1] = username;
                             data[2] = password;
                             data[3] = email;
-                            PutData putData = new PutData("http://172.16.23.134/LoginRegister/signup.php", "POST", field, data);
+                            PutData putData = new PutData("http://" + url + "/LoginRegister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(View.GONE);

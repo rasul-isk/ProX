@@ -29,6 +29,8 @@ public class Search extends Fragment implements SelectListener {
     String search_text;
     View view;
 
+    String url;
+
     private RecyclerView recyclerView;
     private List<Product> myProductList;
     Adapter adapter;
@@ -52,6 +54,7 @@ public class Search extends Fragment implements SelectListener {
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         search_text = sp.getString("search", "");
         search.setText(search_text);
+        url = sp.getString("ip","");
 
         SearchString(search_text);
 
@@ -73,7 +76,7 @@ public class Search extends Fragment implements SelectListener {
         //Creating array for data
         String[] data = new String[1];
         data[0] = search;
-        PutData putData = new PutData("http://172.16.23.134/SearchDisplay/searchString.php", "POST", field, data);
+        PutData putData = new PutData("http://" + url + "/SearchDisplay/searchString.php", "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String[] result = putData.getResult().split("/");
@@ -84,10 +87,21 @@ public class Search extends Fragment implements SelectListener {
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
                 if (!result[0].isEmpty()) {
+                    int loop = 0;
                     for (String row : result) {
-                        String[] items = row.split(",");
-                        //Toast.makeText(getActivity(), items[0] + " " + items[1] + " €" + items[2], Toast.LENGTH_SHORT).show();
-                        myProductList.add(new Product(items[0], items[1], "€" + items[2]));
+
+                        if(loop<15)
+                        {
+                            String[] items = row.split(",");
+                            //Toast.makeText(getActivity(), items[1], Toast.LENGTH_SHORT).show();
+                            myProductList.add(new Product(items[0], items[1], "€" + items[2]));
+                            loop++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
                     }
                     adapter = new Adapter(getActivity(), myProductList, this);
                     recyclerView.setAdapter(adapter);

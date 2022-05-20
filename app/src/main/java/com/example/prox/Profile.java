@@ -32,6 +32,8 @@ public class Profile extends Fragment {
     TextView full_name, email, feedback, rate, favourite, location, phone, edit_profile;
     CircleImageView profile_photo, profile_photo_product;
 
+    String url;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -41,6 +43,7 @@ public class Profile extends Fragment {
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         username = sp.getString("username", "");
         password = sp.getString("password", "");
+        url = sp.getString("ip","");
 
         full_name = view.findViewById(R.id.full_name);
         email = view.findViewById(R.id.email);
@@ -59,7 +62,7 @@ public class Profile extends Fragment {
             String[] data = new String[1];
             data[0] = username;
 
-            PutData putData = new PutData("http://172.16.23.134/LoginRegister/getdata.php", "POST", field, data);
+            PutData putData = new PutData("http://" + url + "/LoginRegister/getdata.php", "POST", field, data);
 
             if (putData.startPut()) {
                 if (putData.onComplete()) {
@@ -68,25 +71,25 @@ public class Profile extends Fragment {
                     email.setText(result[1]);
                     full_name.setText(result[2]);
 
-                    if (!result[3].equals("0")) {
+                    if (!result[3].equals("None")) {
                         phone.setText(result[3]);
                     } else {
                         phone.setText("Unknown");
                     }
 
-                    if (!result[4].equals("")) {
+                    if (!result[4].equals("None")) {
                         favourite.setText(result[4]);
                     } else {
                         favourite.setText("Unknown");
                     }
 
-                    if (!result[5].equals("")) {
+                    if (!result[5].equals("None")) {
                         location.setText(result[5]);
                     } else {
                         location.setText("Unknown");
                     }
 
-                    if (!result[8].equals("")) {
+                    if (!result[8].equals("None")) {
                         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + result[8].substring(0, result[8].length() - 1);
 
                         File imgFile = new File(path);

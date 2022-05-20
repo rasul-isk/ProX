@@ -36,6 +36,7 @@ public class Profile_edit extends Fragment {
     TextInputLayout full_name, email, favourite, location, phone;
     TextInputEditText full_name_input, email_input, favourite_input, location_input, phone_input;
     CircleImageView profile_edited_photo;
+    String url;
 
     ImageView imageButton;
 
@@ -51,6 +52,7 @@ public class Profile_edit extends Fragment {
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         username = sp.getString("username", "");
         password = sp.getString("password", "");
+        url = sp.getString("ip","");
 
         full_name = view.findViewById(R.id.full_name_text_e);
         email = view.findViewById(R.id.email_text_e);
@@ -67,7 +69,6 @@ public class Profile_edit extends Fragment {
         location_input = view.findViewById(R.id.location_e);
         phone_input = view.findViewById(R.id.phone_e);
 
-
         if (username != "" && password != "") {
             String[] field = new String[1];
             field[0] = "username";
@@ -75,7 +76,7 @@ public class Profile_edit extends Fragment {
             String[] data = new String[1];
             data[0] = username;
 
-            PutData putData = new PutData("http://172.16.23.134/LoginRegister/getdata.php", "POST", field, data);
+            PutData putData = new PutData("http://" + url + "/LoginRegister/getdata.php", "POST", field, data);
 
             if (putData.startPut()) {
                 if (putData.onComplete()) {
@@ -147,7 +148,7 @@ public class Profile_edit extends Fragment {
                 data[6] = sp.getString("profile_img", "");
 
 
-                PutData putData = new PutData("http://172.16.23.134/LoginRegister/update_profile.php", "POST", field, data);
+                PutData putData = new PutData("http://" + url + "/LoginRegister/update_profile.php", "POST", field, data);
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
                         String result = putData.getResult();

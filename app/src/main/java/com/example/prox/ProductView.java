@@ -37,6 +37,7 @@ public class ProductView extends Fragment {
     CircleImageView profile_photo_product, profile_image_product_fragment;
     TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search;
 
+    String url;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class ProductView extends Fragment {
         product_name_text = sp.getString("product", "");
         username = sp.getString("username", "");
         profile_photo_product = getActivity().findViewById(R.id.profile_image_product_fragment);
-
+        url = sp.getString("ip","");
 
         product_image = view.findViewById(R.id.product_image);
         product_name = view.findViewById(R.id.product_name);
@@ -76,7 +77,7 @@ public class ProductView extends Fragment {
             //Creating array for data
             String[] data = new String[1];
             data[0] = product_name_text;
-            PutData putData = new PutData("http://172.16.23.134/SearchDisplay/searchItem.php", "POST", field, data);
+            PutData putData = new PutData("http://" + url + "/SearchDisplay/searchItem.php", "POST", field, data);
 
 
             if (putData.startPut()) {
@@ -122,7 +123,7 @@ public class ProductView extends Fragment {
         String[] data = new String[1];
         data[0] = username;
 
-        PutData putData = new PutData("http://172.16.23.134/LoginRegister/getdata.php", "POST", field, data);
+        PutData putData = new PutData("http://" + url + "/LoginRegister/getdata.php", "POST", field, data);
 
         if (putData.startPut()) {
             if (putData.onComplete()) {
