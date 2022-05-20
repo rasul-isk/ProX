@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class Search extends Fragment implements SelectListener {
     SharedPreferences sp;
     String search_text;
     View view;
+    Button back_to_home;
 
     String url;
 
@@ -50,6 +52,7 @@ public class Search extends Fragment implements SelectListener {
 
 
         search_button = view.findViewById(R.id.search_button_search);
+        back_to_home = view.findViewById(R.id.back_to_home);
         search = view.findViewById(R.id.search_input_search);
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         search_text = sp.getString("search", "");
@@ -64,6 +67,14 @@ public class Search extends Fragment implements SelectListener {
                 if (!search_text.isEmpty() && !search_text.replace(" ", "").equals("")) {
                     SearchString(search.getText().toString());
                 }
+            }
+        });
+
+        back_to_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HomeFragment newFragment = new HomeFragment();
+                ReplaceFragment(newFragment);
             }
         });
 

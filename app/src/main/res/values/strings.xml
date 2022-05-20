@@ -39,4 +39,5 @@
     <string name="find_store">Find Store</string>
     <string name="product_description">Product Description</string>
     <string name="already_have_it_share_feedback">Already have it? Share feedback!</string>
+    <string name="type">Type:</string>
 </resources>

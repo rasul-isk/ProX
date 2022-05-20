@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Software/ProX/app/src/main/res/drawable-anydpi/back_icon.xml" value="0.16" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable-anydpi/home_icon.xml" value="0.1445" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable-anydpi/map_icon.xml" value="0.1445" />
         <entry key="..\:/Software/ProX/app/src/main/res/drawable-anydpi/product_photo.xml" value="0.278" />

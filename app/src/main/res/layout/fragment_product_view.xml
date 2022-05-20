@@ -66,6 +66,22 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/store_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="@string/type"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="Euro"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:id="@+id/product_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,13 +90,7 @@
                     android:textSize="20sp" />
 
 
-                <TextView
-                    android:id="@+id/product_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="Euro"
-                    android:textSize="20sp" />
+
             </LinearLayout>
 
 

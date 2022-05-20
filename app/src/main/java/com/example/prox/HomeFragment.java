@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -34,6 +33,8 @@ public class HomeFragment extends Fragment {
         search_button = view.findViewById(R.id.search_button_home);
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         search = view.findViewById(R.id.search_input_home);
+        search_text = sp.getString("search", "");
+        search.setText(search_text);
 
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override

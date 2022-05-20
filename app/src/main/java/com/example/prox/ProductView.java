@@ -35,7 +35,7 @@ public class ProductView extends Fragment {
     String product_name_text, username;
     TextInputEditText review_input;
     CircleImageView profile_photo_product, profile_image_product_fragment;
-    TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search;
+    TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search,store_type;
 
     String url;
 
@@ -66,6 +66,7 @@ public class ProductView extends Fragment {
         review_input = view.findViewById(R.id.review_input);
         share_review_button = view.findViewById(R.id.share_review_button);
         back_to_search = view.findViewById(R.id.back_to_search);
+        store_type = view.findViewById(R.id.store_type);
 
         find_store = view.findViewById(R.id.find_store_button);
 
@@ -82,9 +83,13 @@ public class ProductView extends Fragment {
 
             if (putData.startPut()) {
                 if (putData.onComplete()) {
+
                     String[] result = putData.getResult().split(",");
+                    //Toast.makeText(getActivity(), result[7], Toast.LENGTH_SHORT).show();
+
                     String price = "€" + result[1];
                     String store = "From " + result[4];
+
                     String category = result[2].replace("_"," ").replace("-"," ");
                     String description = result[3].replace("_"," ").replace("-"," ");
 
@@ -93,7 +98,16 @@ public class ProductView extends Fragment {
                     product_category.setText(category);
                     product_description.setText(description);
                     product_store.setText(store);
-                    //Toast.makeText(getActivity(), result[5], Toast.LENGTH_SHORT).show();
+                    store_type.setText("Type: " + result[7]);
+
+                    if(result[7].equals("Online"))
+                    {
+                        find_store.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        find_store.setVisibility(View.VISIBLE);
+                    }
 
                     Picasso.get()
                             .load(result[5])
