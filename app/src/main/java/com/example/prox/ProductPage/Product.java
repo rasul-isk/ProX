@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.ProductPage;
 
 public class Product {
     String name = "";

@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.ProductPage;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,11 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CustomViewHolder extends RecyclerView.ViewHolder {
+import com.example.prox.R;
+
+public class ViewHolderProduct extends RecyclerView.ViewHolder {
     public TextView textName, textCategory, textPrice;
     public CardView cardView;
 
-    public CustomViewHolder(@NonNull View itemView) {
+    public ViewHolderProduct(@NonNull View itemView) {
         super(itemView);
 
         textName = itemView.findViewById(R.id.name_item_list);

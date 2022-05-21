@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.HomeSection;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,13 +16,18 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.prox.ProductPage.AdapterProduct;
+import com.example.prox.ProductPage.ListenerProduct;
+import com.example.prox.ProductPage.Product;
+import com.example.prox.ProductPage.ProductView;
+import com.example.prox.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Search extends Fragment implements SelectListener {
+public class Search extends Fragment implements ListenerProduct {
 
     ImageButton search_button;
     TextInputEditText search;
@@ -35,7 +40,7 @@ public class Search extends Fragment implements SelectListener {
 
     private RecyclerView recyclerView;
     private List<Product> myProductList;
-    Adapter adapter;
+    AdapterProduct adapterProduct;
 
 
     @Override
@@ -73,7 +78,7 @@ public class Search extends Fragment implements SelectListener {
         back_to_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HomeFragment newFragment = new HomeFragment();
+                Home newFragment = new Home();
                 ReplaceFragment(newFragment);
             }
         });
@@ -114,8 +119,8 @@ public class Search extends Fragment implements SelectListener {
                         }
 
                     }
-                    adapter = new Adapter(getActivity(), myProductList, this);
-                    recyclerView.setAdapter(adapter);
+                    adapterProduct = new AdapterProduct(getActivity(), myProductList, this);
+                    recyclerView.setAdapter(adapterProduct);
                 } else {
                     Toast.makeText(getActivity(), "No results", Toast.LENGTH_SHORT).show();
                 }

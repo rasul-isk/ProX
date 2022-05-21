@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.ProfileSection;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.prox.R;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.io.File;

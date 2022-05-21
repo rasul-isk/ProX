@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.ProductPage;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,14 +9,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.prox.R;
+
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<CustomViewHolder> {
+public class AdapterProduct extends RecyclerView.Adapter<ViewHolderProduct> {
     Context context;
     private List<Product> list;
-    private SelectListener listener;
+    private ListenerProduct listener;
 
-    public Adapter(Context context, List<Product> list, SelectListener listener) {
+    public AdapterProduct(Context context, List<Product> list, ListenerProduct listener) {
         this.context = context;
         this.list = list;
         this.listener = listener;
@@ -24,12 +26,12 @@ public class Adapter extends RecyclerView.Adapter<CustomViewHolder> {
 
     @NonNull
     @Override
-    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CustomViewHolder(LayoutInflater.from(context).inflate(R.layout.item, parent, false));
+    public ViewHolderProduct onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolderProduct(LayoutInflater.from(context).inflate(R.layout.item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolderProduct holder, @SuppressLint("RecyclerView") int position) {
         holder.textName.setText(list.get(position).getName());
         holder.textCategory.setText(list.get(position).getStore());
         holder.textPrice.setText(list.get(position).getPrice());

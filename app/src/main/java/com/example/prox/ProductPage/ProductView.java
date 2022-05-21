@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.ProductPage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,6 +18,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.prox.HomeSection.Search;
+import com.example.prox.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -115,6 +117,19 @@ public class ProductView extends Fragment {
                             .into(product_image);
 
 
+                }
+            }
+
+            PutData getReviews = new PutData("http://" + url + "/Reviews/getReviews.php", "POST", field, data);
+
+            if (getReviews.startPut()) {
+                if (getReviews.onComplete()) {
+
+                    String[] result = getReviews.getResult().split("/");
+                    for (String row : result) {
+
+                        //Toast.makeText(getActivity(), row, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         }

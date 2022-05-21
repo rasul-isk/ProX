@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.HomeSection;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,10 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.prox.R;
 import com.example.prox.databinding.FragmentHomeBinding;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class HomeFragment extends Fragment {
+public class Home extends Fragment {
 
     ImageButton search_button;
     TextInputEditText search;

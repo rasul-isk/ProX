@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.MapSection;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.prox.R;
 import com.example.prox.databinding.FragmentMapBinding;
