@@ -16,9 +16,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prox.ProductPage.AdapterProduct;
-import com.example.prox.ProductPage.ListenerProduct;
-import com.example.prox.ProductPage.Product;
+import com.example.prox.ProductAdapter.AdapterProduct;
+import com.example.prox.ProductAdapter.ListenerProduct;
+import com.example.prox.ProductAdapter.Product;
 import com.example.prox.ProductPage.ProductView;
 import com.example.prox.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -98,7 +98,7 @@ public class Search extends Fragment implements ListenerProduct {
                 String[] result = putData.getResult().split("/");
 
                 myProductList = new ArrayList<>();
-                recyclerView = view.findViewById(R.id.recyclerView);
+                recyclerView = view.findViewById(R.id.recyclerViewProducts);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
@@ -109,7 +109,7 @@ public class Search extends Fragment implements ListenerProduct {
                         if(loop<15)
                         {
                             String[] items = row.split(",");
-                            //Toast.makeText(getActivity(), items[1], Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getActivity(), row, Toast.LENGTH_SHORT).show();
                             myProductList.add(new Product(items[0], items[1], "€" + items[2]));
                             loop++;
                         }

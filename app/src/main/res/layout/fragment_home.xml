@@ -7,8 +7,10 @@
     tools:context=".HomeSection.Home"
     android:background="@drawable/main_bg"
     android:orientation="vertical"
-    android:padding="25dp"
-    android:paddingTop="?attr/actionBarSize">
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:paddingTop="25dp"
+    android:paddingBottom="70dp">
 
     <RelativeLayout
         android:id="@+id/mainContainer"
@@ -68,10 +70,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:paddingVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/prim_shape"
+                android:background="@drawable/sec_shape"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -139,19 +142,69 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/prim_shape"
+                android:background="@drawable/sec_shape"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="15dp">
 
                 <TextView
                     android:id="@+id/recentLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/recent"
                     android:textColor="@color/black"></TextView>
 
                 <LinearLayout
+                    android:id="@+id/heading_review_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="23dp"
+                    android:paddingTop="5dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="@string/name"
+                        android:textColor="#111"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/rate"
+                        android:textColor="#111"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/feedback"
+                        android:textColor="#111"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewReviewHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/review_product_section"
+                    android:layout_marginTop="7dp"
+                    android:paddingHorizontal="10dp"></androidx.recyclerview.widget.RecyclerView>
+
+                <!--                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
@@ -271,7 +324,7 @@
                     android:textColor="@color/black"
                     android:textSize="10dp">
 
-                </Button>
+                </Button>-->
             </LinearLayout>
 
         </LinearLayout>

@@ -11,35 +11,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prox.HomeSection.Search;
 import com.example.prox.R;
+import com.example.prox.ReviewAdapter.AdapterReview;
+import com.example.prox.ReviewAdapter.Review;
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ProductView extends Fragment {
 
+    LinearLayout review_heading;
     SharedPreferences sp;
     Button find_store, share_review_button;
     ImageView product_image;
     String product_name_text, username;
-    TextInputEditText review_input;
+    TextInputEditText review_input,rate_input;
     CircleImageView profile_photo_product, profile_image_product_fragment;
     TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search,store_type;
 
     String url;
+
+    private RecyclerView recyclerView;
+    private List<Review> myReviewList;
+    AdapterReview adapterReview;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,6 +81,8 @@ public class ProductView extends Fragment {
         share_review_button = view.findViewById(R.id.share_review_button);
         back_to_search = view.findViewById(R.id.back_to_search);
         store_type = view.findViewById(R.id.store_type);
+        rate_input = view.findViewById(R.id.rate_input);
+        review_heading = view.findViewById(R.id.review_product_section);
 
         find_store = view.findViewById(R.id.find_store_button);
 
@@ -87,7 +101,7 @@ public class ProductView extends Fragment {
                 if (putData.onComplete()) {
 
                     String[] result = putData.getResult().split(",");
-                    //Toast.makeText(getActivity(), result[7], Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), result[6], Toast.LENGTH_SHORT).show();
 
                     String price = "€" + result[1];
                     String store = "From " + result[4];
@@ -101,6 +115,7 @@ public class ProductView extends Fragment {
                     product_description.setText(description);
                     product_store.setText(store);
                     store_type.setText("Type: " + result[7]);
+                    product_rating.setText("Rating: " + result[8]);
 
                     if(result[7].equals("Online"))
                     {
@@ -124,11 +139,33 @@ public class ProductView extends Fragment {
 
             if (getReviews.startPut()) {
                 if (getReviews.onComplete()) {
+                    myReviewList = new ArrayList<>();
+                    recyclerView = view.findViewById(R.id.recyclerViewReview);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
                     String[] result = getReviews.getResult().split("/");
-                    for (String row : result) {
+                    if (!result[0].isEmpty()) {
+                        int loop = 0;
 
-                        //Toast.makeText(getActivity(), row, Toast.LENGTH_SHORT).show();
+                        review_heading.setVisibility(View.VISIBLE);
+
+                        for (String row : result) {
+                            if (loop < 5) {
+                                String[] items = row.split(",");
+                                //Toast.makeText(getActivity(), row, Toast.LENGTH_SHORT).show();
+                                myReviewList.add(new Review(items[0], items[1], items[2]));
+                                loop++;
+                            } else {
+                                break;
+                            }
+                            adapterReview = new AdapterReview(getActivity(), myReviewList);
+                            recyclerView.setAdapter(adapterReview);
+                        }
+                    }
+                    else
+                    {
+                        review_heading.setVisibility(View.INVISIBLE);
                     }
                 }
             }
@@ -139,6 +176,50 @@ public class ProductView extends Fragment {
             public void onClick(View view) {
                 Search newFragment = new Search();
                 ReplaceFragment(newFragment);
+            }
+        });
+
+        share_review_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!username.equals(""))
+                {
+                    if(!review_input.getText().toString().isEmpty() && Float.parseFloat(rate_input.getText().toString()) <= 5)
+                    {
+                        String[] field = new String[4];
+                        field[0] = "username";
+                        field[1] = "product";
+                        field[2] = "rate";
+                        field[3] = "feedback";
+                        //Creating array for data
+                        String[] data = new String[4];
+                        data[0] = username;
+                        data[1] = product_name_text;
+                        data[2] = rate_input.getText().toString();
+                        data[3] = review_input.getText().toString();
+
+                        PutData shareReview = new PutData("http://" + url + "/Reviews/shareReview.php", "POST", field, data);
+
+                        if (shareReview.startPut()) {
+                            if (shareReview.onComplete()) {
+                                Toast.makeText(getActivity(), shareReview.getResult() + ", thank you!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        ProductView newFragment = new ProductView();
+                        ReplaceFragment(newFragment);
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity(), "Please enter feedback and rate from 1 to 5", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Please login for sharing feedback!", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 

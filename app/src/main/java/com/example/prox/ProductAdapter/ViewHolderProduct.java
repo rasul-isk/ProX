@@ -1,4 +1,4 @@
-package com.example.prox.ProductPage;
+package com.example.prox.ProductAdapter;
 
 import android.view.View;
 import android.widget.TextView;
