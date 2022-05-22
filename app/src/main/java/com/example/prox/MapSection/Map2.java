@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.example.prox.R;
 import com.example.prox.databinding.FragmentHomeBinding;
 
-public class Map extends Fragment {
+public class Map2 extends Fragment {
 
     private FragmentHomeBinding binding;
 

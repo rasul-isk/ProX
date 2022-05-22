@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.example.prox.MapSection.Map"
+        android:name="com.example.prox.Map"
         android:label="title_map"
-        tools:layout="@layout/fragment_map2" />
+        tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_profile"

@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prox.HomeSection.Search;
+import com.example.prox.Map;
 import com.example.prox.R;
 import com.example.prox.ReviewAdapter.AdapterReview;
 import com.example.prox.ReviewAdapter.Review;
@@ -42,7 +43,7 @@ public class ProductView extends Fragment {
     SharedPreferences sp;
     Button find_store, share_review_button;
     ImageView product_image;
-    String product_name_text, username;
+    String product_name_text, username,store_name;
     TextInputEditText review_input,rate_input;
     CircleImageView profile_photo_product, profile_image_product_fragment;
     TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search,store_type;
@@ -105,6 +106,7 @@ public class ProductView extends Fragment {
 
                     String price = "€" + result[1];
                     String store = "From " + result[4];
+                    store_name = result[4];
 
                     String category = result[2].replace("_"," ").replace("-"," ");
                     String description = result[3].replace("_"," ").replace("-"," ");
@@ -114,6 +116,7 @@ public class ProductView extends Fragment {
                     product_category.setText(category);
                     product_description.setText(description);
                     product_store.setText(store);
+
                     store_type.setText("Type: " + result[7]);
                     product_rating.setText("Rating: " + result[8]);
 
@@ -170,6 +173,18 @@ public class ProductView extends Fragment {
                 }
             }
         }
+
+        find_store.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("map", store_name);
+                editor.commit();
+
+                Map newFragment = new Map();
+                ReplaceFragment(newFragment);
+            }
+        });
 
         back_to_search.setOnClickListener(new View.OnClickListener() {
             @Override
