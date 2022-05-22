@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.main_fragment_container);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
     }
 
     @Override
@@ -62,4 +63,5 @@ public class MainActivity extends AppCompatActivity {
             profile_edited_photo.setImageURI(uri);
         }
     }
+
 }

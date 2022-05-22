@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.prox.Barcode;
 import com.example.prox.ProductAdapter.AdapterProduct;
 import com.example.prox.ProductAdapter.ListenerProduct;
 import com.example.prox.ProductAdapter.Product;
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class Search extends Fragment implements ListenerProduct {
 
-    ImageButton search_button;
+    ImageButton search_button,barcode_button;
     TextInputEditText search;
     SharedPreferences sp;
     String search_text;
@@ -59,6 +60,7 @@ public class Search extends Fragment implements ListenerProduct {
         search_button = view.findViewById(R.id.search_button_search);
         back_to_home = view.findViewById(R.id.back_to_home);
         search = view.findViewById(R.id.search_input_search);
+        barcode_button = view.findViewById(R.id.barcode_button_search);
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         search_text = sp.getString("search", "");
         search.setText(search_text);
@@ -79,6 +81,14 @@ public class Search extends Fragment implements ListenerProduct {
             @Override
             public void onClick(View view) {
                 Home newFragment = new Home();
+                ReplaceFragment(newFragment);
+            }
+        });
+
+        barcode_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Barcode newFragment = new Barcode();
                 ReplaceFragment(newFragment);
             }
         });

@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.prox.Barcode;
 import com.example.prox.R;
 import com.example.prox.ReviewAdapter.AdapterReview;
 import com.example.prox.ReviewAdapter.Review;
@@ -31,10 +32,11 @@ public class Home extends Fragment {
     private List<Review> myReviewList;
     AdapterReview adapterReview;
 
-    ImageButton search_button, sneakers,tshirt,nike,men,shorts,sandals,cosmetics,women;
+    ImageButton search_button, barcode_button, sneakers,tshirt,nike,men,shorts,sandals,cosmetics,women;
     TextInputEditText search;
     SharedPreferences sp;
     String search_text,url;
+
 
 
     private FragmentHomeBinding binding;
@@ -58,6 +60,8 @@ public class Home extends Fragment {
         sandals = view.findViewById(R.id.sandals);
         cosmetics = view.findViewById(R.id.cosmetics);
         women = view.findViewById(R.id.female);
+
+        barcode_button = view.findViewById(R.id.barcode_button_home);
 
 
         String[] field = new String[1];
@@ -241,8 +245,13 @@ public class Home extends Fragment {
             }
         });
 
-
-
+        barcode_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Barcode newFragment = new Barcode();
+                ReplaceFragment(newFragment);
+            }
+        });
 
         return view;
     }

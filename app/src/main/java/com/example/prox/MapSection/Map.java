@@ -9,16 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.prox.R;
-import com.example.prox.databinding.FragmentMapBinding;
+import com.example.prox.databinding.FragmentHomeBinding;
 
 public class Map extends Fragment {
 
-    private FragmentMapBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_map, container, false);
+        View view = inflater.inflate(R.layout.fragment_map2, container, false);
 
 
         return view;
