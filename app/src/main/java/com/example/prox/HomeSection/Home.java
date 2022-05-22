@@ -31,7 +31,7 @@ public class Home extends Fragment {
     private List<Review> myReviewList;
     AdapterReview adapterReview;
 
-    ImageButton search_button;
+    ImageButton search_button, sneakers,tshirt,nike,men,shorts,sandals,cosmetics,women;
     TextInputEditText search;
     SharedPreferences sp;
     String search_text,url;
@@ -49,6 +49,15 @@ public class Home extends Fragment {
         search_text = sp.getString("search", "");
         search.setText(search_text);
         url = sp.getString("ip","");
+
+        sneakers = view.findViewById(R.id.sneakers);
+        tshirt = view.findViewById(R.id.tshirt);
+        nike = view.findViewById(R.id.nike);
+        men = view.findViewById(R.id.male);
+        shorts = view.findViewById(R.id.shorts);
+        sandals = view.findViewById(R.id.sandals);
+        cosmetics = view.findViewById(R.id.cosmetics);
+        women = view.findViewById(R.id.female);
 
 
         String[] field = new String[1];
@@ -102,6 +111,137 @@ public class Home extends Fragment {
                 }
             }
         });
+
+        sneakers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "sneakers";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+        tshirt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "t-shirt";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+        nike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "nike";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+        men.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "shirt men";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+
+        shorts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "shorts";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+        sandals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "sandals";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+        cosmetics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "cosmetics";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+        women.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_text = "women";
+
+                if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("search", search_text);
+                    editor.commit();
+
+                    Search newFragment = new Search();
+                    ReplaceFragment(newFragment);
+                }
+            }
+        });
+
+
 
 
         return view;

@@ -7,8 +7,10 @@
     tools:context=".HomeSection.Search"
     android:background="@drawable/main_bg"
     android:orientation="vertical"
-    android:padding="25dp"
-    android:paddingTop="?attr/actionBarSize">
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:paddingTop="25dp"
+    android:paddingBottom="70dp">
 
     <LinearLayout
         android:id="@+id/search_linear"

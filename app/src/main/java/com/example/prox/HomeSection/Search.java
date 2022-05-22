@@ -95,6 +95,7 @@ public class Search extends Fragment implements ListenerProduct {
         PutData putData = new PutData("http://" + url + "/SearchDisplay/searchString.php", "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
+                //Toast.makeText(getActivity(), putData.getResult(), Toast.LENGTH_SHORT).show();
                 String[] result = putData.getResult().split("/");
 
                 myProductList = new ArrayList<>();
