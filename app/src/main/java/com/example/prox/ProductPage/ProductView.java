@@ -100,16 +100,57 @@ public class ProductView extends Fragment {
 
             if (putData.startPut()) {
                 if (putData.onComplete()) {
+                    String[] result;
+                    String temp = putData.getResult();
+                    String url = "";
+                    if (temp.contains("H&M")) {
 
-                    String[] result = putData.getResult().split(",");
+                        int start = temp.indexOf("https://");
+                        int end = temp.indexOf("[file:/product/style]") + 21;
+
+                        url = temp.substring(start,end);
+                        temp = temp.replace(url," ");
+                        Picasso.get()//result[5]
+                                .load(url)
+                                .fit()
+                                .into(product_image);
+
+                        result = temp.split(",");
+
+                    }
+                    else if(temp.contains("Nike"))
+                    {
+                        int start = temp.indexOf("https://");
+                        int end = temp.indexOf(".png") + 4;
+
+                        url = temp.substring(start,end);
+                        temp = temp.replace(url," ");
+                        Picasso.get()//result[5]
+                                .load(url)
+                                .fit()
+                                .into(product_image);
+
+                        result = temp.split(",");
+                    }
+                    else
+                    {
+                        result = temp.split(",");
+                        Picasso.get()
+                                .load(result[5])
+                                .fit()
+                                .into(product_image);
+                    }
+
+
+
                     //Toast.makeText(getActivity(), result[6], Toast.LENGTH_SHORT).show();
 
                     String price = "€" + result[1];
                     String store = "From " + result[4];
                     store_name = result[4];
 
-                    String category = result[2].replace("_"," ").replace("-"," ");
-                    String description = result[3].replace("_"," ").replace("-"," ");
+                    String category = result[2].replace("_", " ").replace("-", " ");
+                    String description = result[3].replace("_", " ").replace("-", " ");
 
                     product_name.setText(result[0]);
                     product_price.setText(price);
@@ -120,20 +161,11 @@ public class ProductView extends Fragment {
                     store_type.setText("Type: " + result[7]);
                     product_rating.setText("Rating: " + result[8]);
 
-                    if(result[7].equals("Online"))
-                    {
+                    if (result[7].equals("Online")) {
                         find_store.setVisibility(View.INVISIBLE);
-                    }
-                    else
-                    {
+                    } else {
                         find_store.setVisibility(View.VISIBLE);
                     }
-
-                    Picasso.get()
-                            .load(result[5])
-                            .fit()
-                            .into(product_image);
-
 
                 }
             }

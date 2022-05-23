@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -102,7 +101,7 @@ public class Map extends Fragment {
         search_button_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getCurrentFocus().onEditorAction(EditorInfo.IME_ACTION_DONE);
+                //getActivity().getCurrentFocus().onEditorAction(EditorInfo.IME_ACTION_DONE);
 
                 String location = search_input_map.getText().toString();
                 if(location==null)
