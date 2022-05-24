@@ -63,6 +63,9 @@ public class Map extends Fragment {
 
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spawnLocation, 15));
 
+            place = sp.getString("map", "");
+            search_input_map.setText(place);
+
             search_button_map.callOnClick();
         }
     };
@@ -94,8 +97,7 @@ public class Map extends Fragment {
         search_input_map = view.findViewById(R.id.search_input_map);
 
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
-        place = sp.getString("map", "");
-        search_input_map.setText(place);
+
 
 
         search_button_map.setOnClickListener(new View.OnClickListener() {

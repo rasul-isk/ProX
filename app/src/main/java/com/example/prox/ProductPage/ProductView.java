@@ -22,10 +22,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prox.HomeSection.Search;
-import com.example.prox.Map;
 import com.example.prox.R;
 import com.example.prox.ReviewAdapter.AdapterReview;
 import com.example.prox.ReviewAdapter.Review;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -213,8 +213,11 @@ public class ProductView extends Fragment {
                 editor.putString("map", store_name);
                 editor.commit();
 
+                BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
+                navView.setSelectedItemId(R.id.navigation_map);
+/*
                 Map newFragment = new Map();
-                ReplaceFragment(newFragment);
+                ReplaceFragment(newFragment);*/
             }
         });
 
