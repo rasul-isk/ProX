@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prox.Barcode;
 import com.example.prox.R;
 import com.example.prox.ReviewAdapter.AdapterReview;
 import com.example.prox.ReviewAdapter.Review;
@@ -32,10 +32,10 @@ public class Home extends Fragment {
     private List<Review> myReviewList;
     AdapterReview adapterReview;
 
-    ImageButton search_button, barcode_button, sneakers,tshirt,nike,men,shorts,sandals,cosmetics,women;
+    ImageButton search_button, barcode_button, sneakers,tshirt,nike,men,shorts,sandals,cosmetics,women, search_history_home;
     TextInputEditText search;
     SharedPreferences sp;
-    String search_text,url;
+    String search_text,url,username;
 
 
 
@@ -49,8 +49,10 @@ public class Home extends Fragment {
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         search = view.findViewById(R.id.search_input_home);
         search_text = sp.getString("search", "");
+
         search.setText(search_text);
         url = sp.getString("ip","");
+        username = sp.getString("username","");
 
         sneakers = view.findViewById(R.id.sneakers);
         tshirt = view.findViewById(R.id.tshirt);
@@ -60,6 +62,7 @@ public class Home extends Fragment {
         sandals = view.findViewById(R.id.sandals);
         cosmetics = view.findViewById(R.id.cosmetics);
         women = view.findViewById(R.id.female);
+        search_history_home = view.findViewById(R.id.search_history_home);
 
         barcode_button = view.findViewById(R.id.barcode_button_home);
 
@@ -98,6 +101,29 @@ public class Home extends Fragment {
                 }
             }
         }
+
+        search_history_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!username.equals(""))
+                {
+                    search_text = search.getText().toString();
+
+                    if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("search", search_text);
+                        editor.commit();
+                    }
+
+                    History newFragment = new History();
+                    ReplaceFragment(newFragment);
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Please login to see search history!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override

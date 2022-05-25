@@ -33,7 +33,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="280dp"
+                    android:layout_width="235dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/search"
                     android:textColor="#111"
@@ -53,6 +53,8 @@
                     android:id="@+id/search_button_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
                     android:background="?android:attr/selectableItemBackground"
                     app:srcCompat="@android:drawable/ic_menu_search" />
 
@@ -60,10 +62,20 @@
                     android:id="@+id/barcode_button_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
                     android:background="?android:attr/selectableItemBackground"
-                    android:paddingStart="10dp"
                     app:srcCompat="@drawable/qrcode_icon" />
+
+                <ImageButton
+                    android:id="@+id/search_history_home"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:scaleType="fitXY"
+                    android:background="?android:attr/selectableItemBackground"
+                    app:srcCompat = "@drawable/history_icon"/>
 
 
             </LinearLayout>

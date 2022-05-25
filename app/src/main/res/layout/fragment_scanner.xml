@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Barcode"
+    tools:context=".HomeSection.Barcode"
     android:background="@drawable/main_bg"
     android:orientation="vertical"
     android:paddingLeft="25dp"

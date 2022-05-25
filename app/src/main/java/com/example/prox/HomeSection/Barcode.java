@@ -1,4 +1,4 @@
-package com.example.prox;
+package com.example.prox.HomeSection;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,8 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
-import com.example.prox.HomeSection.Home;
-import com.example.prox.HomeSection.Search;
+import com.example.prox.R;
 import com.google.zxing.Result;
 
 public class Barcode extends Fragment {

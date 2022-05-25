@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.prox.HomeSection.Home;
 import com.example.prox.HomeSection.Search;
 import com.example.prox.R;
 import com.example.prox.ReviewAdapter.AdapterReview;
@@ -46,7 +47,7 @@ public class ProductView extends Fragment {
     String product_name_text, username,store_name;
     TextInputEditText review_input,rate_input;
     CircleImageView profile_photo_product, profile_image_product_fragment;
-    TextView product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search,store_type;
+    TextView back_to_home_product,product_price, product_name, product_store, product_rating, product_category, product_description,back_to_search,store_type;
 
     String url;
 
@@ -84,22 +85,28 @@ public class ProductView extends Fragment {
         store_type = view.findViewById(R.id.store_type);
         rate_input = view.findViewById(R.id.rate_input);
         review_heading = view.findViewById(R.id.review_product_section);
-
+        back_to_home_product = view.findViewById(R.id.back_to_home_product);
         find_store = view.findViewById(R.id.find_store_button);
 
         //SetImageForProfile(username); Crashes once set image bitmap being called
 
         if (!product_name_text.equals("")) {
-            String[] field = new String[1];
+            String[] field = new String[3];
             field[0] = "string";
+            field[1] = "username";
+            field[2] = "search";
             //Creating array for data
-            String[] data = new String[1];
+            String[] data = new String[3];
             data[0] = product_name_text;
+            data[1] = username;
+            data[2] = sp.getString("search", "");
+
             PutData putData = new PutData("http://" + url + "/SearchDisplay/searchItem.php", "POST", field, data);
 
 
             if (putData.startPut()) {
                 if (putData.onComplete()) {
+                    //Toast.makeText(getActivity(), putData.getResult(), Toast.LENGTH_SHORT).show();
                     String[] result;
                     String temp = putData.getResult();
                     String url = "";
@@ -215,9 +222,6 @@ public class ProductView extends Fragment {
 
                 BottomNavigationView navView = getActivity().findViewById(R.id.nav_view);
                 navView.setSelectedItemId(R.id.navigation_map);
-/*
-                Map newFragment = new Map();
-                ReplaceFragment(newFragment);*/
             }
         });
 
@@ -225,6 +229,14 @@ public class ProductView extends Fragment {
             @Override
             public void onClick(View view) {
                 Search newFragment = new Search();
+                ReplaceFragment(newFragment);
+            }
+        });
+
+        back_to_home_product.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Home newFragment = new Home();
                 ReplaceFragment(newFragment);
             }
         });

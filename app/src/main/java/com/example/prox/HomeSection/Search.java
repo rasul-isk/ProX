@@ -16,7 +16,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prox.Barcode;
 import com.example.prox.ProductAdapter.AdapterProduct;
 import com.example.prox.ProductAdapter.ListenerProduct;
 import com.example.prox.ProductAdapter.Product;
@@ -30,14 +29,14 @@ import java.util.List;
 
 public class Search extends Fragment implements ListenerProduct {
 
-    ImageButton search_button,barcode_button;
+    ImageButton search_button,barcode_button, search_history_search;
     TextInputEditText search;
     SharedPreferences sp;
     String search_text;
     View view;
     Button back_to_home;
 
-    String url;
+    String url,username;
 
     private RecyclerView recyclerView;
     private List<Product> myProductList;
@@ -63,10 +62,35 @@ public class Search extends Fragment implements ListenerProduct {
         barcode_button = view.findViewById(R.id.barcode_button_search);
         sp = getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         search_text = sp.getString("search", "");
+        username = sp.getString("username", "");
         search.setText(search_text);
         url = sp.getString("ip","");
+        search_history_search = view.findViewById(R.id.search_history_search);
 
         SearchString(search_text);
+
+        search_history_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!username.equals(""))
+                {
+                    search_text = search.getText().toString();
+
+                    if (!search_text.equals("") && !search_text.replace(" ", "").equals("")) {
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("search", search_text);
+                        editor.commit();
+                    }
+
+                    History newFragment = new History();
+                    ReplaceFragment(newFragment);
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Please login to see search history!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,11 +121,13 @@ public class Search extends Fragment implements ListenerProduct {
     }
 
     protected void SearchString(String search) {
-        String[] field = new String[1];
+        String[] field = new String[2];
         field[0] = "string";
+        field[1] = "username";
         //Creating array for data
-        String[] data = new String[1];
+        String[] data = new String[2];
         data[0] = search;
+        data[1] = username;
         PutData putData = new PutData("http://" + url + "/SearchDisplay/searchString.php", "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
