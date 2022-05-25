@@ -17,13 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prox.HistoryAdapter.AdapterHistory;
 import com.example.prox.HistoryAdapter.HistoryItem;
+import com.example.prox.HistoryAdapter.ListenerHistory;
 import com.example.prox.R;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class History extends Fragment {
+public class History extends Fragment  implements ListenerHistory {
 
     SharedPreferences sp;
     TextView back_to_home;
@@ -83,7 +84,7 @@ public class History extends Fragment {
                             } else {
                                 break;
                             }
-                            adapterHistory = new AdapterHistory(getActivity(), HistoryList);
+                            adapterHistory = new AdapterHistory(getActivity(), HistoryList, this);
                             recyclerView.setAdapter(adapterHistory);
                         }
                     } else {
@@ -102,6 +103,18 @@ public class History extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onItemClicked(HistoryItem historyItem) {
+
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putString("search",historyItem.getSearch());
+        editor.commit();
+
+        Search newFragment = new Search();
+        ReplaceFragment(newFragment);
     }
 
 
