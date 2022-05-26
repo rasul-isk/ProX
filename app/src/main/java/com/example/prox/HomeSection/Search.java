@@ -49,7 +49,6 @@ public class Search extends Fragment implements ListenerProduct {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
