@@ -1,5 +1,5 @@
 # ProX
-Product Explorer (ProX) - Android application helping to find, compare and rate products from shops. I'd been built this project for 10 weeks (including all documents listed below) as a Bachelor Degree final project. Due to limited amount of time and final project standards (couldn't work in a team), I had done my best in back-end functionality and ***DIDN'T FOCUS on front-end design AT ALL***.
+Product Explorer (ProX) - Android application helping to find, compare and rate products from shops. I'd been built this project for 10 weeks (including all documents listed below) as a Bachelor Degree final project. Due to limited amount of time and diploma project standards (couldn't work in a team), I had done my best in back-end functionality and ***DIDN'T FOCUS on front-end design AT ALL***.
 
 <hr>
 
